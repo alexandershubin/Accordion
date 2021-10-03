@@ -1,4 +1,4 @@
-# Тестовое задание Accordion
+# Accordion
 <img width="705" alt="accordion" src="https://user-images.githubusercontent.com/41856053/135756389-ba6725aa-32fc-4f41-b830-eac12a3da288.png">
 
 ## Краткая инструкция по работе с проектом
