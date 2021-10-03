@@ -1,0 +1,274 @@
+$white: #ffffff;
+$background-item: #f2f4f7;
+$border-item: #d4dadf;
+
+// status color
+$correct: #357e8b;
+$skipped: #989898;
+$warning: #f29e35;
+$error: #b32533;
+$disabled: #d2d8dd;
+
+.accordion-list {
+  margin: 35px auto;
+  list-style: none;
+  padding: 0;
+
+  &__item {
+    position: relative;
+    background: $background-item;
+    border-radius: 20px;
+    margin: 20px 30px;
+    border: 2px solid transparent;
+    transition: 0.6s ease;
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      bottom: -44px;
+      left: 37px;
+      width: 2px;
+      z-index: 1;
+    }
+
+    &:last-child:before {
+      content: none;
+    }
+
+    &_isOpened {
+      border: 2px solid $border-item;
+      transition: 0.6s ease;
+    }
+
+    &_status_correct {
+      &:before {
+        background: $correct;
+      }
+
+      .accordion-list__count {
+        color: $white;
+        background: $correct;
+      }
+
+      .accordion-list__status {
+        color: $correct;
+      }
+    }
+
+    &_status_skipped {
+      &:before {
+        background: $warning;
+      }
+
+      .accordion-list__count {
+        color: $correct;
+        background: $white;
+        border: 2px solid $correct;
+      }
+
+      .accordion-list__status {
+        color: $skipped;
+      }
+    }
+
+    &_status_warning {
+      &:before {
+        background: $error;
+      }
+
+      .accordion-list__count {
+        color: $warning;
+        background: $white;
+        border: 2px solid $warning;
+      }
+
+      .accordion-list__status {
+        color: $warning;
+      }
+    }
+
+    &_status_error {
+      &:before {
+        background: $disabled;
+      }
+
+      .accordion-list__count {
+        color: $white;
+        background: $error;
+      }
+
+      .accordion-list__status {
+        color: $error;
+      }
+    }
+
+    &_disabled {
+      &:before {
+        background: $disabled;
+      }
+
+      .accordion-list__count {
+        color: #bfc3c8;
+        border: none;
+      }
+    }
+  }
+
+  &__count {
+    position: absolute;
+    top: 24px;
+    left: 20px;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 50%;
+    box-shadow: 0 5px 0 0 $background-item;
+    z-index: 2;
+  }
+
+  &__content {
+    padding: 0 0 0 80px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    padding: 25px 65px 25px 0;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__status {
+    margin-left: auto;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+  }
+
+  &__svg {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.6s ease;
+
+    &_isOpened {
+      transform: rotate(180deg);
+      transition: transform 0.6s ease;
+    }
+  }
+
+  &__line {
+    transition: 0.6s ease;
+    opacity: 0;
+    border: 1px solid $border-item;
+    margin: 0;
+
+    &_isOpened {
+      opacity: 1;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+  }
+
+  &__description {
+    width: 100%;
+    padding: 25px 0;
+    margin: 0;
+    font-size: 21px;
+    line-height: 29px;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 1200px) {
+  .accordion-list {
+    margin: 35px auto;
+
+
+    &__item {
+      margin: 34px 53px;
+      border-radius: 30px;
+
+      &:before {
+        bottom: -67px;
+        left: 88px;
+        width: 4px;
+      }
+
+      &_status_skipped {
+        .accordion-list__count {
+          border: 4px solid $correct;
+        }
+
+      }
+
+      &_status_warning {
+        .accordion-list__count {
+          border: 4px solid $warning;
+        }
+      }
+
+      &_disabled {
+        .accordion-list__count {
+          border: none;
+        }
+      }
+    }
+
+    &__count {
+      top: 38px;
+      left: 66px;
+      height: 48px;
+      width: 48px;
+      font-size: 24px;
+      box-shadow: 0 7px 0 0 $background-item;
+    }
+
+    &__content {
+      padding: 0 0 0 160px;
+    }
+
+    &__inner {
+      padding: 45px 130px 45px 0;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 35px;
+    }
+
+    &__status {
+      font-size: 27px;
+      line-height: 35px;
+    }
+
+    &__svg {
+      right: 70px;
+      top: 55px;
+      width: 25px;
+      height: 25px;
+    }
+
+    &__description {
+      padding: 53px 0;
+      font-size: 27px;
+      line-height: 35px;
+    }
+  }
+}

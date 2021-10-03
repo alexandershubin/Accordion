@@ -1,0 +1,15 @@
+@import "fonts";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #38393c;
+  min-width: 600px;
+  margin: 0;
+  padding: 0;
+}
